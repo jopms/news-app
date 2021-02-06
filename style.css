@@ -3,29 +3,37 @@
     padding:0;
 }
 
+
+
 .header{
     width: auto;
-    height: 8rem;
     text-align: center;
-    padding-top: 0.8rem;
+    padding-top: 1rem;
     box-shadow: 0.2px 0.2px 3px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .search-wrap{
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     
 }
 
-input:focus{
+#search:focus{
     width: 12rem;
     height: 1.5rem;
     border-radius: 15px;
     outline: none;
     background-position: left;
     background-position-x: 10px;
+    
+    
 }
 
-input:hover{
+
+#search:hover{
     cursor: pointer;
 }
 
@@ -33,7 +41,7 @@ input:hover{
     padding-left: 2rem;
 }
 
-input {
+#search {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 15px;
@@ -43,13 +51,63 @@ input {
     background-position: center;
     background-size: 1rem;
     background-repeat:no-repeat;
+    border-color:#303030;
+    margin-bottom: 10px;
 }
-
-
-
 
 h1{
     font-family: 'Antic Didone', serif;
+    color: #1f1f1f;
 }
 
 
+.categories>button:hover{
+    cursor: pointer;
+    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
+}
+
+.categories>button:focus{
+    outline: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid black;
+    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
+}
+
+.categories{
+    padding-top: 1.5rem;
+    width: 100%;
+    max-width: 45rem;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+}
+
+
+.categories input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+.categories label {
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    text-transform: capitalize;
+    padding-bottom: 1px;
+    border-bottom: 1px solid transparent;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-duration: 1.5s;
+}
+
+.categories input[type="radio"]:checked + label {
+    outline: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid black;
+    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
+}
+
+.categories input[type="radio"]:hover + label{
+    cursor: pointer;
+    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
+}
