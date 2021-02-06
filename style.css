@@ -25,9 +25,14 @@ input:focus{
     background-position-x: 10px;
 }
 
+input:hover{
+    cursor: pointer;
+}
+
 #search:focus{
     padding-left: 2rem;
 }
+
 input {
     width: 1.5rem;
     height: 1.5rem;
