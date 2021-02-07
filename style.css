@@ -1,12 +1,12 @@
 *{
     margin: 0;
-    padding:0;
+    padding: 0;
+    color:  #1f1f1f;
 }
-
-html, body { height: 100vh; }
-
-
-
+html, body {
+    height: 100%;
+    
+}
 
 
 .header{
@@ -14,21 +14,28 @@ html, body { height: 100vh; }
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 11rem;
     transform: translateY(120%);
     box-shadow:0;
-    padding-top: 0rem;
+    padding-top: unset;
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    position: fixed;
+    background-color: white;
+    z-index: 1;
 }
+
+.spacer{
+    height: 13rem;
+    width: 100%;
+}
+
 
 .search-wrap{
     padding-top: 1.5rem;
-    
 }
 
 #search:focus{
     width: 12rem;
-    height: 1.5rem;
-    border-radius: 15px;
     outline: none;
     background-position: left;
     background-position-x: 10px;
@@ -42,26 +49,27 @@ html, body { height: 100vh; }
 }
 
 #search:focus{
-    padding-left: 2rem;
+    padding-left: 2.5rem;
 }
 
 #search {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 15px;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 30px;
     outline: none;
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     background-image: url("images/search-icon.png");
     background-position: center;
-    background-size: 1rem;
+    background-size: 1.5rem;
     background-repeat:no-repeat;
     border-color:#303030;
     margin-bottom: 10px;
+    
 }
 
 h1{
     font-family: 'Antic Didone', serif;
-    color: #1f1f1f;
+ 
 }
 
 
@@ -107,7 +115,7 @@ h1{
 .categories input[type="radio"]:checked + label {
     outline: none;
     padding-bottom: 1px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #1f1f1f;
     text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
 }
 
@@ -115,3 +123,58 @@ h1{
     cursor: pointer;
     text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
 }
+
+.news-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+
+.title2{
+
+    font-size: 1.1rem;
+    font-family: 'Antic Didone', serif;
+    
+}
+
+.description{
+    padding-top: 5px;
+    font-size: 0.8rem;
+    font-family: 'Antic Didone', serif;
+    
+    text-align: justify;
+    
+}
+
+.source{
+    padding-top: 6px;
+    font-size: 0.8rem;
+    font-family: 'Antic Didone', serif;
+    
+    text-transform: capitalize;
+}
+
+.news{
+    width: 400px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    border-bottom: unset;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    transition: opacity 1.5s;
+    will-change: opacity;
+    z-index: 0;
+}
+
+.news.fade{
+    opacity: 0;
+}
+
