@@ -5,37 +5,19 @@
 
 html, body { height: 100vh; }
 
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 
-
-.headerUpdated{
-    overflow: hidden;
-    position: fixed; 
-    top: 0; 
-    width: 100%; 
-    text-align: center;
-    padding-top: 1rem;
-    box-shadow: 0.2px 0.2px 3px rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;    
-    transition: all 1s linear;
-}
 
 
 .header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 100%;
-    margin-top: -12rem;
+    transform: translateY(120%);
+    box-shadow:0;
+    padding-top: 0rem;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .search-wrap{

@@ -6,16 +6,20 @@ const url = `http://api.mediastack.com/v1/news?access_key=${api}&languages=pt`;
 function getNews (url){ 
     fetch(url)
         .then ((news) => news.json())
-        .then ((data) => updateHTML(data))
+        .then ((data) => updateWindow(data))
 }
 
-function updateHTML(data){
-    (document.getElementsByClassName("header"))[0].className === "header" ? (document.getElementsByClassName("header"))[0].className = "headerUpdated" : null
+function updateWindow(data){
     
+    //(document.getElementsByClassName("header"))[0].className === "header" ? (document.getElementsByClassName("header"))[0].className = "headerUpdated" : null;
+    ((document.getElementsByClassName("header"))[0]).style.transform = "translateY(0%)";
+    ((document.getElementsByClassName("header"))[0]).style.paddingTop = "1rem";
+    ((document.getElementsByClassName("header"))[0]).style.boxShadow = "0px 4px 5px -4px rgba(0, 0, 0, 0.3)";
 }
 
 function updateInfo(info){
-    getNews(url+`&keywords=${info}`);
+    //getNews(url+`&keywords=${info}`);
+    updateWindow(info);
 
 }
 
