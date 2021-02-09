@@ -1,7 +1,9 @@
 const newsData = {
     api: "3752898342c7441f7444634b55547d12",
     category: "general",
-    url() { return `http://api.mediastack.com/v1/news?access_key=${this.api}&languages=pt&country=pt&sort=published_desc&categories=${this.category}` }
+    country: "pt,-br",
+    language: "pt",
+    url() { return `http://api.mediastack.com/v1/news?access_key=${this.api}&countries=${this.country}&languages=${this.language}&sort=published_desc&categories=${this.category}` }
 }
 
 const updateCategory = (cat) => {
@@ -9,13 +11,13 @@ const updateCategory = (cat) => {
 }
 
 const getNews = (url) => {
-    console.log(url);
     fetch(url)
         .then((news) => news.json())
         .then((data) => updateWindow(data))
 }
 
 const updateWindow = (news) => {
+    console.log(news.data);
     const headerStyle = ((document.getElementsByClassName("header"))[0]).style;
 
     headerStyle.transform = "translateY(0%)";
@@ -23,6 +25,7 @@ const updateWindow = (news) => {
     headerStyle.boxShadow = "0px 4px 5px -4px rgba(0, 0, 0, 0.3)";
 
     const organizeData = (news.data).map((n, i) => {
+        
         return (
             `   <div class ="news fade">
                 <a href="${news.data[i].url}"><h2 class="title2">${news.data[i].title}</h2></a>
@@ -45,7 +48,7 @@ const updateInfo = (info) => {
     getNews(newsData.url() + `&keywords=${info}`);
 }
 
-const searchValue = (e) => {
+function searchValue (e) {
     if (e.key === "Enter") {
         updateInfo(this.value);
         this.value = "";
@@ -58,3 +61,4 @@ const clearInput = () => {
 
 document.getElementById("search").addEventListener("keypress", searchValue);
 window.addEventListener("click", clearInput);
+
