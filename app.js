@@ -1,9 +1,10 @@
 const newsData = {
     api: "3752898342c7441f7444634b55547d12",
     category: "general",
-    country: "pt,-br",
+    country: "pt",
     language: "pt",
-    url() { return `http://api.mediastack.com/v1/news?access_key=${this.api}&countries=${this.country}&languages=${this.language}&sort=published_desc&categories=${this.category}` }
+    keywords: "",
+    url() { return `http://api.mediastack.com/v1/news?access_key=${this.api}&countries=${this.country}&languages=${this.language}&sort=published_desc&categories=${this.category}&keywords=${this.keywords}` }
 }
 
 const updateCategory = (cat) => {
@@ -17,35 +18,47 @@ const getNews = (url) => {
 }
 
 const updateWindow = (news) => {
-    console.log(news.data);
+    
     const headerStyle = ((document.getElementsByClassName("header"))[0]).style;
 
     headerStyle.transform = "translateY(0%)";
     headerStyle.paddingTop = "1rem";
     headerStyle.boxShadow = "0px 4px 5px -4px rgba(0, 0, 0, 0.3)";
-
-    const organizeData = (news.data).map((n, i) => {
+    console.log(news.data.length);
+    if(news.data.length === 0){
+        document.getElementById("news").innerHTML = `<div class ="news fade"><h3 class="description"><i>NO NEWS RELATED TO <b>"${newsData.keywords}"</b></i></h3></p></div>`
         
-        return (
-            `   <div class ="news fade">
-                <a href="${news.data[i].url}"><h2 class="title2">${news.data[i].title}</h2></a>
-                <p><h3 class="description">${news.data[i].description}</h3></p>
-                <p><h4 class="source">${news.data[i].source} - ${(news.data[i].published_at).slice(0, 10)}<h4></p>
-                </div>`
-        )
-    }).join("");
-
-    document.getElementById("news").innerHTML = organizeData;
-
-    requestAnimationFrame(() => {
-        news.data.forEach((n, i) => {
-            document.getElementsByClassName("news")[i].classList.remove("fade");
+        requestAnimationFrame(() => {
+                document.getElementsByClassName("news")[0].classList.remove("fade");
         });
-    });
+        
+    }else{
+        const organizeData = (news.data).map((n, i) => {
+            
+            return (
+                `   <div class ="news fade">
+                    <a href="${news.data[i].url}"><h2 class="title2">${news.data[i].title}</h2></a>
+                    <p><h3 class="description">${news.data[i].description}</h3></p>
+                    <p><h4 class="source">${news.data[i].source} - ${(news.data[i].published_at).slice(0, 10)}<h4></p>
+                    </div>`
+            )
+        }).join("");
+
+        document.getElementById("news").innerHTML = organizeData;
+    }
+        requestAnimationFrame(() => {
+            news.data.forEach((n, i) => {
+                document.getElementsByClassName("news")[i].classList.remove("fade");
+            });
+        });
+    
 }
 
 const updateInfo = (info) => {
-    getNews(newsData.url() + `&keywords=${info}`);
+    console.log(info);
+    newsData.keywords = info;
+    console.log(newsData.url());
+    getNews(newsData.url());
 }
 
 function searchValue (e) {
@@ -57,6 +70,13 @@ function searchValue (e) {
 
 const clearInput = () => {
     document.getElementById("search").value = "";
+}
+
+const toggleCategories = () => {
+    const state = document.getElementById("categories").style;
+
+  state.display === "none" ? state.display = "flex" : state.display = "none"
+  
 }
 
 document.getElementById("search").addEventListener("keypress", searchValue);

@@ -10,41 +10,51 @@
     
 </head>
 <body>
-    
-        <div class="header">        
-            <div class="title"><h1>The News in Portugal </h1></div>
-            <div class="search-wrap"><input type="text"  name="search-bar" id="search"></div>
-                <div class="categories">
-            
+    <div class="header">        
+        <div class="title"><h1>The News in Portugal </h1>
+        </div>
+        
+        
+        <div class="search-wrap"><input type="text"  name="search-bar" id="search">
+        </div>
+        
+        <div class="category">
+            <div class="category-button">
+                <input type="button" id="category-button" value="Search Category" onclick="toggleCategories();">
+            </div>
+
+            <div class="categories" id="categories" style="display: none;">
                 <input type="radio" id="business" name="category" value="business" onclick="updateCategory(this.id);">
                 <label for="business">Business</label>
 
                 <input type="radio" id="entertainment" name="category" value="entertainment" onclick="updateCategory(this.id);">
                 <label for="entertainment">Entertainment</label>
-            
+                
                 <input type="radio" id="health" name="category" value="health" onclick="updateCategory(this.id);">
                 <label for="health">Health</label>
 
                 <input type="radio" id="general" name="category" value="general" onclick="updateCategory(this.id);" checked>
                 <label for="general">General</label>
-                
+                    
                 <input type="radio" id="science" name="category" value="science" onclick="updateCategory(this.id);">
                 <label for="science">Science</label>
-                
+                    
                 <input type="radio" id="sports" name="category" value="sports" onclick="updateCategory(this.id);">
                 <label for="sports">Sports</label>
-                
+                    
                 <input type="radio" id="technology" name="category" value="technology" onclick="updateCategory(this.id);">
                 <label for="technology">Technology</label>
             </div>
+        </div>
 
-        </div>
-        <div class="spacer">
-            &nbsp;
-        </div>
+    </div>
     
-        <div class="news-wrapper" id = "news">
-        </div>
+    <div class="spacer">
+        &nbsp;
+    </div>
+    
+    <div class="news-wrapper" id = "news">
+    </div>
 
 
     <script src="app.js" ></script>

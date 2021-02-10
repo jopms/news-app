@@ -5,9 +5,11 @@
 }
 html, body {
     height: 100%;
-    
 }
 
+body{
+    z-index: 0;
+}
 
 .header{
     display: flex;
@@ -18,14 +20,14 @@ html, body {
     transform: translateY(120%);
     box-shadow:0;
     padding-top: unset;
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow 0.5s ease-in-out 0.5s;
     position: fixed;
+    z-index: 2;
     background-color: white;
-    z-index: 1;
 }
 
 .spacer{
-    height: 13rem;
+    height: 12rem;
     width: 100%;
 }
 
@@ -39,8 +41,6 @@ html, body {
     outline: none;
     background-position: left;
     background-position-x: 10px;
-    
-    
 }
 
 
@@ -70,10 +70,64 @@ h1{
  
 }
 
+.category{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    margin-bottom: 5px;
+    
+}
+
+
+.categories{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(240, 240, 240);
+    margin-top:5px;
+    padding: 0px 10px 0px;
+    border-radius: 10px;
+    min-width: 110px;
+    overflow: hidden;
+    box-shadow: 2.5px 5px 10px rgb(190, 190, 190);
+    
+}
+
+.category-button{
+    display: flex;
+    justify-content: center;
+    
+}
+
+#category-button{
+    background-color: transparent;
+    border: solid 1px #1f1f1f;
+    padding: 3px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: 'Antic Didone', serif;
+    
+}
+
+#category-button:hover{
+    box-shadow: 2px 2px 5px rgba(99, 99, 99, 0.4);
+    cursor: pointer;
+    
+}
+
+#category-button:focus{
+    outline: none;
+}
+#category-button:active{
+    box-shadow: none;
+}
+
+
 
 .categories>button:hover{
     cursor: pointer;
-    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
+    text-shadow: 1px 1px 1px rgba(124, 124, 124, 0.2);
+    
 }
 
 .categories>button:focus{
@@ -83,43 +137,50 @@ h1{
     text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
 }
 
-.categories{
-    padding-top: 1.5rem;
-    width: 100%;
-    max-width: 45rem;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 5px;
-}
-
 
 .categories input[type="radio"] {
     opacity: 0;
     position: fixed;
     width: 0;
-  }
+}
 
 .categories label {
     display: inline-block;
     background-color: transparent;
     border: none;
     text-transform: capitalize;
-    padding-bottom: 1px;
+    padding-top:5px;
+    padding-bottom: 5px;
     border-bottom: 1px solid transparent;
-    transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
-    transition-duration: 1.5s;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-right:10px;
+    padding-left:10px;
 }
 
 .categories input[type="radio"]:checked + label {
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
     outline: none;
-    padding-bottom: 1px;
-    border-bottom: 1px solid #1f1f1f;
-    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
+    text-shadow: 1px 1px 1px rgba(133, 133, 133, 0.2);
+    background-color: rgb(212, 212, 212);
+    width: 100%;
 }
 
 .categories input[type="radio"]:hover + label{
+    
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
     cursor: pointer;
-    text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
+    width: 100%;
+    height: 100%;
+    background-color: rgb(179, 179, 179);
+    
 }
 
 .news-wrapper{
@@ -127,23 +188,21 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color:rgb(238, 238, 238);
+    
 }
 
 
 
 .title2{
-
     font-size: 1.1rem;
     font-family: 'Antic Didone', serif;
-    
 }
 
 .description{
     padding-top: 5px;
     font-size: 0.8rem;
     font-family: 'Antic Didone', serif;
-    
     text-align: justify;
     
 }
@@ -152,7 +211,6 @@ h1{
     padding-top: 6px;
     font-size: 0.8rem;
     font-family: 'Antic Didone', serif;
-    
     text-transform: capitalize;
 }
 
@@ -163,17 +221,21 @@ h1{
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100%;
     border-bottom: unset;
-    padding-bottom: 40px;
-    padding-top: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding:15px;
     transition: opacity 1.5s;
     will-change: opacity;
-    z-index: 0;
+    z-index: 1;
+    border-radius: 10px;
+    background-color: rgb(219, 219, 219);
+    box-shadow: 5px 5px 10px rgb(179, 179, 179);
 }
 
 .news.fade{
     opacity: 0;
+    box-shadow: 0;
 }
 
 a{
