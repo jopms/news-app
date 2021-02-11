@@ -17,11 +17,10 @@ body{
     align-items: center;
     width: 100%;
     height: 11rem;
-    transform: translateY(120%);
+    transform: translateY(80%);
     box-shadow:0;
     padding-top: unset;
     transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow 0.5s ease-in-out 0.5s;
-    position: fixed;
     z-index: 2;
     background-color: white;
 }
@@ -43,9 +42,6 @@ body{
     background-position-x: 10px;
 }
 
-
-
-
 #search:focus{
     padding-left: 2.5rem;
 }
@@ -61,23 +57,19 @@ body{
     background-size: 1.5rem;
     background-repeat:no-repeat;
     border-color:#303030;
-    margin-bottom: 10px;
-    
+    margin-bottom: 10px;    
 }
 
 h1{
     font-family: 'Antic Didone', serif;
- 
 }
 
 .category{
     display: flex;
     flex-direction: column;
     padding-top: 1.5rem;
-    margin-bottom: 5px;
-    
+    margin-bottom: 5px;   
 }
-
 
 .categories{
     flex-direction: column;
@@ -90,13 +82,12 @@ h1{
     min-width: 110px;
     overflow: hidden;
     box-shadow: 2.5px 5px 10px rgb(190, 190, 190);
-    
+    position: relative;    
 }
 
 .category-button{
     display: flex;
     justify-content: center;
-    
 }
 
 #category-button{
@@ -106,28 +97,35 @@ h1{
     border-radius: 10px;
     font-weight: bold;
     font-family: 'Antic Didone', serif;
-    
+    -webkit-transition: all 0.5s ease; 
+    -moz-transition: all 0.5s ease; 
+    -o-transition: all 0.5s ease; 
+    -ms-transition: all 0.5s ease; 
+    transition: all 0.5s ease;
+    box-shadow: none; 
 }
 
 #category-button:hover{
     box-shadow: 2px 2px 5px rgba(99, 99, 99, 0.4);
     cursor: pointer;
-    
+    -webkit-transition: all 0.5s ease; 
+    -moz-transition: all 0.5s ease; 
+    -o-transition: all 0.5s ease; 
+    -ms-transition: all 0.5s ease; 
+    transition: all 0.5s ease; 
 }
 
 #category-button:focus{
     outline: none;
 }
+
 #category-button:active{
     box-shadow: none;
 }
 
-
-
 .categories>button:hover{
     cursor: pointer;
-    text-shadow: 1px 1px 1px rgba(124, 124, 124, 0.2);
-    
+    text-shadow: 1px 1px 1px rgba(124, 124, 124, 0.2);    
 }
 
 .categories>button:focus{
@@ -136,7 +134,6 @@ h1{
     border-bottom: 1px solid black;
     text-shadow: 1px 1px 1px rgba(51, 51, 51, 0.2);
 }
-
 
 .categories input[type="radio"] {
     opacity: 0;
@@ -170,8 +167,7 @@ h1{
     width: 100%;
 }
 
-.categories input[type="radio"]:hover + label{
-    
+.categories input[type="radio"]:hover + label{    
     display: flex;
     justify-content: center;
     padding-left: 10px;
@@ -180,7 +176,6 @@ h1{
     width: 100%;
     height: 100%;
     background-color: rgb(179, 179, 179);
-    
 }
 
 .news-wrapper{
@@ -189,10 +184,9 @@ h1{
     justify-content: center;
     align-items: center;
     background-color:rgb(238, 238, 238);
-    
+    transition: opacity 1s linear;
+    -webkit-transition: opacity 1s linear;
 }
-
-
 
 .title2{
     font-size: 1.1rem;
@@ -230,7 +224,7 @@ h1{
     z-index: 1;
     border-radius: 10px;
     background-color: rgb(219, 219, 219);
-    box-shadow: 5px 5px 10px rgb(179, 179, 179);
+    box-shadow: 5px 5px 10px rgb(179, 179, 179);    
 }
 
 .news.fade{
@@ -240,4 +234,60 @@ h1{
 
 a{
     text-decoration: none;
+}
+
+.last-news-wrapper{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+    -webkit-transition: opacity 0.5s linear;
+    height: 230px;
+}
+
+.last-news{
+    display: flex;
+    justify-content:space-around;
+    flex-direction: column;
+    text-align: center;
+    transform: scale(0.9);
+    max-width: 250px;
+    padding-left: 20px;
+    padding-right:20px;
+    transition: opacity 1s linear;
+    -webkit-transition: opacity 1s linear;
+    will-change: opacity;
+    background-color: rgb(238, 238, 238);
+    border-radius: 15px;
+    padding: 15px;
+    position: relative;
+    -webkit-transition: all 0.5s ease; 
+    -moz-transition: all 0.5s ease; 
+    -o-transition: all 0.5s ease; 
+    -ms-transition: all 0.5s ease; 
+    transition: all 0.5s ease; 
+    box-shadow: none;
+}
+
+.last-news:hover{
+    box-shadow: 5px 5px 10px rgba(107, 107, 107, 0.575);
+    -webkit-transition: all 0.5s ease; 
+    -moz-transition: all 0.5s ease; 
+    -o-transition: all 0.5s ease; 
+    -ms-transition: all 0.5s ease; 
+    transition: all 0.5s ease; 
+}
+
+.title3{
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.last-news.fade{
+    opacity: 0;
+}
+
+.title:hover{
+    cursor: pointer;
 }
