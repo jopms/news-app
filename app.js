@@ -1,5 +1,5 @@
 const newsData = {
-    api: "6b67dee799bc463fa4b07d49a424ddab",
+    api: "0f8afbb9e2071a3227218ffe759b88b0",
     category: "general",
     country: "pt",
     language: "pt",
@@ -16,7 +16,7 @@ const newsData = {
     return [year, month, day].join('-')
     },
     url () {return `http://api.mediastack.com/v1/news?access_key=${this.api}&countries=${this.country}&languages=${this.language}&sort=published_desc&categories=${this.category}&keywords=${this.keywords}`},
-    lastUrl() { return `http://api.mediastack.com/v1/news?access_key=${this.api}&countries=${this.country}&languages=${this.language}&sort=popularity&date=2021-02-06,${this.date()}&limit=30`} //Currently the API used doesn't work when calling the current day (maybe because it's a free version)
+    lastUrl() { return `http://api.mediastack.com/v1/news?access_key=${this.api}&countries=${this.country}&languages=${this.language}&sort=popularity&limit=30`} //Currently the API used doesn't work when calling the current day (maybe because it's a free version)
 }
 //Function that's on every category in html "onclick" feature
 function updateCategory(cat) {
@@ -44,6 +44,7 @@ function updateFrontPageNews (news){
     let random = [getRandomInt(0,11),getRandomInt(11,21),getRandomInt(21,31)]
     let info = "";
     for (let i=0; i<3 ; i++){
+        
         info += `<div class ="last-news fade">
                 <a href="${news.data[random[i]].url}"><h2 class="title3">${news.data[random[i]].title}</h2></a>
                 <p><h3 class="description">${news.data[random[i]].description}</h3></p>
