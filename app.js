@@ -1,5 +1,5 @@
 const newsData = {
-    api: "0f8afbb9e2071a3227218ffe759b88b0",
+    api: "6b67dee799bc463fa4b07d49a424ddab",
     category: "general",
     country: "pt",
     language: "pt",
